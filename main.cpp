@@ -139,7 +139,8 @@ int main(int, char**) {
   
 #ifdef __EMSCRIPTEN__
   // 0 fps means to use requestAnimationFrame; non-0 means to use setTimeout.
-  emscripten_set_main_loop(main_loop, 0, 1);
+  emscripten_set_main_loop(main_loop, 0, 0);
+  emscripten_exit_with_live_runtime();
 #else
   while (main_loop_running) {
     main_loop();
